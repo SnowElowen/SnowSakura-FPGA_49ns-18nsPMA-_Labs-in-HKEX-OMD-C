@@ -40,7 +40,9 @@ Initial logic mapping and physical isolation.
 
 ### Stage 3: Full Pipeline Squeeze @ 322MHz
 
-*![Weixin Image_20260318204100_6_26](https://github.com/user-attachments/assets/d443e079-9491-4c44-88c6-09f390c701ef)*
+*![Weixin Image_20260318204100_6_26](https://github.com/user-attachments/assets/d443e079-9491-4c44-88c6-09f390c701e![Weixin Image_20260318204101_7_26](https://github.com/user-attachments/assets/8069e5b5-d993-4af8-b15d-f96482da0b07)
+f)*
+
 
 
 As the parsing logic scales, the timing window shrinks to its absolute physical limit.
