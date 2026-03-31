@@ -128,3 +128,28 @@ Whether it’s **UltraScale+** or the overhyped **Versal**, without a profound u
 ---
 
 **This demonstrates that true engineering excellence is not derived from chasing the latest architecture, but from absolute mastery over the Physical Layer.** While automated black-box tools struggle with stochastic delays under **Routing Matrix** pressure, only precise control over physical hardware resources ensures dominance in the nanosecond-scale battlefield.
+
+#### The Art on Silicon: A 0.009ns Ultimate Physical Seal
+Under the high-frequency heartbeat of **322.26MHz**, I saw through the automated tool's coordinate mapping illusions and successfully locked down the true physical port of entry for the **GTH** (**Clock Region X3Y4**). Through extreme **Pblock** constraints, precise **Register Replication**, and manual routing intervention, the core **U-turn** path of **SnowSakura** has secured epic physical metrics:
+
+* **Worst Negative Slack (WNS): 0.511 ns** — Under the lethal 1.2ns cross-module deadline, I forcefully extracted an absolute margin of half a nanosecond.
+* **Logic Level = 0** — The signal launches from **RX** with zero logic gate attrition, driving straight into the **TX** core relying purely on bare **Copper Traces**.
+* **Worst Hold Slack (WHS): 0.009 ns** — A mere 9 picoseconds! This means our parsing logic has been relentlessly pinned at absolute zero distance to the physical pins, perfectly illustrating what "flying close to the ground" means in **HFT**.
+
+#### Absolute Mastery over the Physical Layer
+This period of extreme **Physical Layer** squeezing has allowed me to truly achieve absolute control over every metal routing trace and every internal **Switchbox**. The single-path, low-level foundation for handling the **HKEX OMD-C** protocol is now rock-solid.
+<img width="1059" height="567" alt="Snipaste_2026-03-31_23-39-34" src="https://github.com/user-attachments/assets/675dee75-401b-4367-a812-52f95b177943" />
+
+
+
+
+However, there is another **Critical Path** waiting for me to converge in the real world—next month's **PTE** exam. I must free up all my brain's computational power to minimize the latency on this "English bus."
+
+---
+
+**A brief dormancy paves the way for a more magnificent eruption.** When September arrives, **SnowSakura** will undergo a more aggressive evolution: dual-path concurrency, hardware-level **Arbitration**, and zero-latency **Binary Message** ingestion.
+
+Thanks for watching, this is Snow, much love to you all. 
+See you in the next stage this September when my freshman year begins. Until then, signing off!
+
+
