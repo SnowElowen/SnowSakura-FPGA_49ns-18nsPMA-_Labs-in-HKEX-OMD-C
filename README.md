@@ -144,11 +144,19 @@ This period of extreme **Physical Layer** squeezing has allowed me to truly achi
 #### New Simulation
 <img width="1102" height="544" alt="Snipaste_2026-04-11_02-34-34" src="https://github.com/user-attachments/assets/4b26d169-1d64-4091-823c-cb75858f31ca" />
 <img width="1110" height="735" alt="Snipaste_2026-04-11_03-05-14" src="https://github.com/user-attachments/assets/c923b34a-d88c-4106-a2ae-c7aaa1ba1a93" />
-* This repository hosts a high-performance OMD-C (Optimized Message Data-Cast) hardware parser and framer, engineered for sub-nanosecond precision in High-Frequency Trading (HFT) environments. By utilizing GTH Transceiver PMA/PCS Bypass (Raw Mode), this architecture achieves a deterministic U-turn latency that pushes the physical limits of the 16nm FinFET fabric.*
-* Zero-Wait Predictive Barrel Shifter: Implements a combinatorial 128-to-64 bit sliding window to resolve bit-slip offsets in Raw Mode without adding a single clock cycle of latency.*
-* Parallel Preamble Sniffing: Utilizes a high-speed pattern matching array to detect the SFD (0xD5) across all 8 byte-lanes simultaneously, ensuring immediate frame synchronization.*
-* CARRY8-Optimized Parsing: Hardware-mapped 16-bit magnitude comparators for MsgType and MsgLen validation, achieving logic levels $< 4$ for maximum timing closure headroom*
-* Deterministic Pipeline: A strictly enforced 5-FF Stage path (4-cycle RX, 1-cycle TX) ensures zero-jitter response times, critical for competitive market data feedback loops.*
+###  Technical Specification & Performance Edge
+
+* **Sub-Nanosecond OMD-C Gateway** — This repository hosts a high-performance OMD-C (Optimized Message Data-Cast) hardware parser and framer, engineered for sub-nanosecond precision in High-Frequency Trading (HFT) environments. By utilizing GTH Transceiver PMA/PCS Bypass (Raw Mode), this architecture achieves a deterministic U-turn latency that pushes the physical limits of the 16nm FinFET fabric.
+* **Zero-Wait Predictive Barrel Shifter** — Implements a combinatorial 128-to-64 bit sliding window to resolve bit-slip offsets in Raw Mode without adding a single clock cycle of latency.
+* **Parallel Preamble Sniffing** — Utilizes a high-speed pattern matching array to detect the SFD (0xD5) across all 8 byte-lanes simultaneously, ensuring immediate frame synchronization.
+* **CARRY8-Optimized Parsing** — Hardware-mapped 16-bit magnitude comparators for MsgType and MsgLen validation, achieving logic levels < 4 for maximum timing closure headroom.
+* **Deterministic Pipeline** — A strictly enforced 5-FF Stage path (4-cycle RX, 1-cycle TX) ensures zero-jitter response times, critical for competitive market data feedback loops.
+
+###  Hardcore Timing Metrics (Post-Implementation)
+
+* **Worst Negative Slack (WNS): 0.511 ns** — Under the lethal 1.2ns cross-module deadline, I forcefully extracted an absolute margin of half a nanosecond.
+* **Logic Level = 0** — The signal launches from **RX** with zero logic gate attrition, driving straight into the **TX** core relying purely on bare **Copper Traces**.
+* **Worst Hold Slack (WHS): 0.009 ns** — A mere 9 picoseconds! This means our parsing logic has been relentlessly pinned at absolute zero distance to the physical pins, perfectly illustrating what "flying close to the ground" means in **HFT**.
 
 
 
