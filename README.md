@@ -157,7 +157,24 @@ This period of extreme **Physical Layer** squeezing has allowed me to truly achi
 ### Next Use python Test
 <img width="1073" height="695" alt="Snipaste_2026-04-11_04-26-58" src="https://github.com/user-attachments/assets/dd56b53e-c019-4972-98d2-83507355269d" />
 
+### ### Major Milestone: IEEE 802.3 Framework Refactor & OMD-C Throughput Breakthrough
 
+**Current Status: v0.7-Alpha (Refactored)**
+<img width="1108" height="315" alt="Snipaste_2026-04-12_02-38-45" src="https://github.com/user-attachments/assets/7ceb0e70-6e79-4648-a698-99cb2f538220" />
+<img width="1152" height="580" alt="Snipaste_2026-04-12_02-38-36" src="https://github.com/user-attachments/assets/13875b2f-7465-457e-8344-56db6fd14fd1" />
+<img width="1062" height="588" alt="Snipaste_2026-04-12_02-39-00" src="https://github.com/user-attachments/assets/9078b994-f866-4e87-9c3a-3fb87ebadcf5" />
+
+
+
+
+* **Architectural Overhaul** – Completely re-engineered the underlying **IEEE 802.3** framework to eliminate vendor-specific IP overhead. By transitioning to a custom high-performance physical layer, the packet capture stability has surged from a baseline of **10%** to a robust **71.3%** (**7,131/10,000** packets) under peak simulation load.
+* **Physical Layer Precision** – Achieved stable **HKEX OMD-C v1.45** binary parsing at a line speed of **322.56MHz**. This refactor optimizes the **GTH Raw Mode** data path, ensuring significantly tighter alignment and reduced jitter during high-density bursts.
+* **Special Acknowledgments** – I would like to extend my deepest gratitude to **Frank Bruno**. His invaluable insights and technical guidance on high-speed serial interfaces were the catalyst for this breakthrough. Without his mentorship, reaching the **7,000+** packet milestone in this timeframe would not have been possible.
+
+### ### Next Steps
+
+* **Gate-Level Delta Mapping** – Currently mapping the remaining **28.6%** loss at the gate level.
+* **FSM Optimization** – Focused on perfecting the **FSM** state-transition logic within the newly refactored framework to achieve a **Zero-Loss (0%)** production-ready state for the **15EG** platform.
 
 
 
