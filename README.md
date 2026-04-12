@@ -39,9 +39,9 @@ Initial logic mapping and physical isolation.
 
 ### Stage 3: Full Pipeline Squeeze @ 322MHz
 
-![Timing_Summary](莓氷えな_3.jpg)
+![Timing_Summary](莓冰えな_3.jpg)
 
-![Clock_Tree](Itigoriena_4.png)
+![Clock_Tree](itigonena_4.png)
 
 As the parsing logic scales, the timing window shrinks to its absolute physical limit.
 * **Timing Met**: **WNS** squeezed to **0.472 ns**, **WHS** at **0.030 ns**. 
