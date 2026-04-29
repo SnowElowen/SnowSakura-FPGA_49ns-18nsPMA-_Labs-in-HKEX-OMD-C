@@ -206,7 +206,7 @@ If you can hit **100% zero-loss** without adding more than **37ns** of wire-to-w
 
 ###  Repository Structure (Simulation)
 - `/sim/tb_omdc_top.v` : The high-precision physical layer testbench.
-- `/sim/raw_data.hex` : 100,00 lines of OMD-C raw binary stream.
+- `/sim/raw_data.hex` : 100,00lines of OMD-C raw binary stream.
 
 
 
