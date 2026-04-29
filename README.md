@@ -173,7 +173,41 @@ This period of extreme **Physical Layer** squeezing has allowed me to truly achi
 * **Gate-Level Delta Mapping** – Currently mapping the remaining **28.6%** loss at the gate level.
 * **FSM Optimization** – Focused on perfecting the **FSM** state-transition logic within the newly refactored framework to achieve a **Zero-Loss (0%)** production-ready state for the **15EG** platform.
 
+##  Update: Cracking the 9,900+ Barrier & Public Stress Test Release
 
+Following the initial breakthrough, I’ve pushed the **SnowSakura-FPGA** architecture even further. We aren't just talking about functional simulation anymore; we are talking about **Physical Layer Survival**.
+
+I have officially achieved **9,974/10,202** packet captures (97.8% success rate) under extreme physical constraints. To the community and fellow HFT architects: **The Testbench and Raw Data are now public.** If you think your parser can handle the heat of a real-world HKEX line, feel free to clone and run the simulation yourself.
+
+![Vivado_Sim_1](12sim3_.png)
+
+###  What’s inside the Stress Test? (Why most parsers will fail)
+
+This isn't your typical "ideal world" simulation. To replicate the brutal environment of the **HKEX OMD-C** feed at a **322.56 MHz** line speed, I’ve injected real-world physical distortions into the `tb_omdc_top.v`:
+
+*   **Clock Skew & 25 PPM Offset**: In reality, the exchange's clock and your local oscillator are never in perfect sync. I’ve introduced a **25 PPM** frequency offset to test if your architecture can handle "clock drift" without a standard Elastic Buffer.
+*   **6.0 ps RMS Random Jitter**: We are simulating the **GTH PMA** recovered clock noise. This jitter will ruthlessly attack your **Setup/Hold windows**. If your **Triple-FF** synchronization or **CDC** logic isn't physically constrained (TCL-locked), your FSM will flip.
+*   **Sub-nanosecond Phase Shifts**: The data injection is randomized to hit the clock edges at the worst possible moments, testing the absolute limits of metastability recovery.
+*   **Raw Mode Data Stream**: Using the provided `raw_data.hex`, the test forces you to deal with raw bitstreams directly from the transceiver, bypassing vendor-specific IP "black boxes" to achieve the **36ns-37ns** latency boundary.
+
+![Vivado_Sim_2](13sim3_2.png)
+
+### The Goal: The Final 2.2%
+
+Currently, the **Five-FF** stage architecture handles **97.8%** of the burst under these conditions. The remaining **228 packets** are the final frontier—a battle against the laws of physics at **3.1ns** cycles. 
+
+**Think your FSM can do better?**
+1.  Clone the `/sim` folder.
+2.  Point the `$readmemh` in `tb_omdc_top.v` to the provided `raw_data.hex`.
+3.  Set your simulation timescale to `1ps / 1fs` and run.
+
+If you can hit **100% zero-loss** without adding more than **37ns** of wire-to-wire latency, let’s talk.
+
+![Vivado_Sim_3](14sim3_3.png)
+
+###  Repository Structure (Simulation)
+- `/sim/tb_omdc_top.v` : The high-precision physical layer testbench.
+- `/sim/raw_data.hex` : 400,000 lines of OMD-C raw binary stream.
 
 
 
