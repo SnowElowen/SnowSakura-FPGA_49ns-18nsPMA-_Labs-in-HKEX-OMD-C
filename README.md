@@ -23,7 +23,7 @@ Relying on Vivado's Auto-Router for OMD-C parsing is a death sentence. To squeez
 
 ### Stage 1: Datapath Routing & Net Delay Suppression
 
-![data](img/玉树樱_1.jpg)
+![data](img/s1_routing.jpg)
 
 
 The raw battle between **Logic Delay** and **Net Delay**. When operating in the `gt_txusrclk2` domain at 322MHz, the propagation delay across the silicon is your biggest enemy.
@@ -31,14 +31,14 @@ The raw battle between **Logic Delay** and **Net Delay**. When operating in the 
 * **Logic**: If you let the GUI decide your Placement, your Net Delay will spike, and your 31.5ns target will be shattered by routing congestion.
 
 ### Stage 2: Floorplanning & Initial Timing Closure
-![Data_Path_Logic](img/tamakisakura2_.jpg)
+![Data_Path_Logic](img/s2_floorplan.jpg)
 Initial logic mapping and physical isolation. 
 * **Timing Met**: **WNS (Worst Negative Slack)** secured at **0.708 ns**. **WHS (Worst Hold Slack)** tightly locked at **0.024 ns**.
 * **Logic**: The logic cells (CLEM) are tightly packed to minimize interconnect latency. This is not arbitrary; this is the result of strict **Pblock** constraints. Zero failing endpoints mean the Triple-FF synchronization logic is physically solid.
 
 ### Stage 3: Full Pipeline Squeeze @ 322MHz
 
-![Timing_Summary](img/苺氷えな_3.jpg)
+![Timing_Summary](img/s3_timing.jpg)
 
 ![Clock_Tree](img/4ltigoriena_sim1.png)
 
