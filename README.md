@@ -1,6 +1,14 @@
 # SnowSakura: Physical Layer Implementation Specs for 15EG  VU9P
 ## Target: 22nsLogicLatency（MAC+Parser）+18nsPMALATENCY Deterministic for HKEX-OMD-C 
 
+---
+
+###  The Logic Arena
+The pursuit of deterministic latency is a lonely road. I am currently **bored** and seeking intellectual **adversaries** or collaborators. Whether you want to **challenge my routing strategy**, discuss **nanosecond-scale bottlenecks**, or require **strategic consultation** for HFT infrastructure:
+
+- **Email:** `ruansheng333@gmail.com`
+- **Status:** Open for deep-dive technical "chess" and advisory.
+
 ### Physical Layer Design Philosophy
 
 * **Determinism over Abstraction**: In the realm of 31.5ns latency, standard software stacks are nothing but propagation noise.
