@@ -26,27 +26,27 @@ def generate_omdc_physical_stream(filename="raw_data.hex", count=10000):
             # 2. Construct OMD-C Message (Example: Add Order (30) - Section 3.9.1)
             # =========================================================
             msg_size = 32                      # Uint16
-            msg_type = 30                      # Uint16 (30 = Add Order) [cite: 179]
-            sec_code = random.randint(1, 9999) # Uint32 [cite: 335]
-            order_id = seq_num                 # Uint64 [cite: 335]
-            price = 9750                       # Int32 (3 implied decimal places) [cite: 335]
-            qty = 100                          # Uint32 [cite: 335]
-            side = random.choice([0, 1])       # Uint16 (0=Bid, 1=Offer) [cite: 335]
-            order_type = b'2'                  # String 1-byte ('2' for Limit) [cite: 335]
+            msg_type = 30                      # Uint16 (30 = Add Order) 
+            sec_code = random.randint(1, 9999) # Uint32 
+            order_id = seq_num                 # Uint64 
+            price = 9750                       # Int32 (3 implied decimal places) 
+            qty = 100                          # Uint32 
+            side = random.choice([0, 1])       # Uint16 (0=Bid, 1=Offer) 
+            order_type = b'2'                  # String 1-byte ('2' for Limit) 
             filler = b'\x00'                   # String 1-byte
-            ob_pos = 0                         # Int32 [cite: 335]
+            ob_pos = 0                         # Int32 
 
-            # '<' represents Little-Endian, strictly required by OMD-C Spec 3.1 [cite: 152]
+            # '<' represents Little-Endian, strictly required by OMD-C Spec 3.1 
             msg_payload = struct.pack('<HH I Q i I H c c i',
                 msg_size, msg_type, sec_code, order_id, price, qty, side, order_type, filler, ob_pos)
 
             # =========================================================
-            # 3. Construct OMD-C Packet Header (Section 3.3) [cite: 187]
+            # 3. Construct OMD-C Packet Header (Section 3.3) 
             # =========================================================
-            pkt_size = 16 + len(msg_payload)   # Uint16 [cite: 187]
-            msg_count = 1                      # Uint8 [cite: 187]
+            pkt_size = 16 + len(msg_payload)   # Uint16 
+            msg_count = 1                      # Uint8 
             pkt_filler = b'\x00'               # String 1-byte
-            send_timestamp = int(time.time() * 1e9) # Uint64 (Nanoseconds) [cite: 187]
+            send_timestamp = int(time.time() * 1e9) # Uint64 (Nanoseconds) 
 
             pkt_header = struct.pack('<H B c I Q',
                 pkt_size, msg_count, pkt_filler, seq_num, send_timestamp)
